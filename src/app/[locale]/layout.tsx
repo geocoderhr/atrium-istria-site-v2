@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 
 import { PageShell } from "@/components/layout/PageShell";
-import { isSupportedLocale, Locale } from "@/lib/routing/locales";
+import { isSupportedLocale, Locale, locales } from "@/lib/routing/locales";
+
+export const dynamicParams = false;
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -16,4 +18,8 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   }
 
   return <PageShell locale={locale as Locale}>{children}</PageShell>;
+}
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }

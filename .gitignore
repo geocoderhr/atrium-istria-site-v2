@@ -11,3 +11,6 @@ coverage/
 .env.*.local
 
 .vercel/
+
+# Raw project photo archive stays local; production-ready assets go to public/site/
+assets/photos/

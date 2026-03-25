@@ -1,6 +1,8 @@
 import Link from "next/link";
 
+import { siteConfig } from "@/content/site-config";
 import { Locale } from "@/lib/routing/locales";
+import { locales } from "@/lib/routing/locales";
 
 type SiteHeaderProps = {
   locale: Locale;
@@ -14,25 +16,27 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           <Link href={`/${locale}`} className="site-logo">
             Atrium Istria
           </Link>
-          <div className="language-switch" aria-label="Language switch">
-            {(["hr", "en", "ru"] as const).map((item) => (
-              <Link
-                key={item}
-                href={`/${item}`}
-                className={item === locale ? "language-switch__item is-active" : "language-switch__item"}
-              >
-                {item.toUpperCase()}
-              </Link>
-            ))}
-          </div>
+          {locales.length > 1 ? (
+            <div className="language-switch" aria-label="Language switch">
+              {locales.map((item) => (
+                <Link
+                  key={item}
+                  href={`/${item}`}
+                  className={item === locale ? "language-switch__item is-active" : "language-switch__item"}
+                >
+                  {item.toUpperCase()}
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </div>
         <nav className="site-nav" aria-label="Primary">
           <Link href={`/${locale}/adaptacije-kuca-i-stanova`}>Usluge</Link>
           <Link href={`/${locale}/radovi`}>Radovi</Link>
           <Link href={`/${locale}/kontakt`}>Kontakt</Link>
         </nav>
-        <a className="site-phone" href="tel:+385910000000">
-          +385 91 000 0000
+        <a className="site-phone" href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}>
+          {siteConfig.phone}
         </a>
       </div>
     </header>
