@@ -1,0 +1,15 @@
+:root {
+  --color-bg: #181a1c;
+  --color-bg-soft: #232629;
+  --color-surface: rgba(243, 241, 235, 0.72);
+  --color-surface-border: rgba(255, 255, 255, 0.14);
+  --color-text: #f3f1eb;
+  --color-text-dark: #17191b;
+  --color-muted: rgba(243, 241, 235, 0.72);
+  --color-accent: #d57a36;
+  --color-card: rgba(255, 255, 255, 0.05);
+  --shadow-glass: 0 24px 80px rgba(0, 0, 0, 0.32);
+  --radius-panel: 28px;
+  --radius-card: 22px;
+  --container-width: 1200px;
+}

@@ -1,0 +1,23 @@
+import { homeContentHr } from "@/content/locales/hr/home";
+
+export function HomeFaqSection() {
+  const section = homeContentHr.faq;
+
+  return (
+    <section className="home-section home-section--soft">
+      <div className="container stack-lg">
+        <div className="section-heading">
+          <h2>{section.title}</h2>
+        </div>
+        <div className="faq-list">
+          {section.items.map((item) => (
+            <details key={item.question} className="faq-item">
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
