@@ -46,7 +46,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
   return (
     <>
-      <HomeHeroSection hero={homeContentHr.hero} />
+      <HomeHeroSection hero={homeContentHr.hero} locale={locale} />
       <HomeServicesProcessSection section={homeContentHr.servicesProcess} locale={locale as Locale} />
       <HomeSelectedProjectsSection
         section={homeContentHr.selectedProjects}

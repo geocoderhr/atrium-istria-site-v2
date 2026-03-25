@@ -28,8 +28,10 @@ export type ServicesProcessItem = {
 export type ProjectCase = {
   slug: string;
   title: string;
+  objectType: string;
   location: string;
   service: string;
+  serviceHref: string;
   challenge: string;
   workDone: string;
   result: string;
@@ -149,6 +151,60 @@ export type ServicePageContent = {
     description: string;
     ctaLabel: string;
     ctaHref: string;
+    phone: string;
+    email: string;
+  };
+};
+
+export type RadoviPageContent = {
+  seo: SeoFields;
+  hero: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
+  intro: {
+    title: string;
+    description: string;
+  };
+  cases: {
+    title: string;
+    description: string;
+    items: ProjectCase[];
+  };
+  finalContact: {
+    title: string;
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+    phone: string;
+    email: string;
+  };
+};
+
+export type ContactPageContent = {
+  seo: SeoFields;
+  hero: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
+  methods: {
+    title: string;
+    intro: string;
+    items: ServiceTextItem[];
+  };
+  process: {
+    title: string;
+    intro: string;
+    items: ServiceTextItem[];
+  };
+  prompt: {
+    title: string;
+    description: string;
+    textareaLabel: string;
+    placeholder: string;
+    ctaLabel: string;
     phone: string;
     email: string;
   };

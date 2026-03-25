@@ -1,18 +1,11 @@
 import { Metadata } from "next";
 
-import { PlaceholderPage } from "@/components/layout/PlaceholderPage";
-import { buildPlaceholderMetadata } from "@/lib/seo/placeholder-metadata";
+import { KontaktPageTemplate } from "@/components/sections/kontakt/KontaktPageTemplate";
+import { kontaktContentHr } from "@/content/locales/hr/kontakt";
+import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 
-export const metadata: Metadata = buildPlaceholderMetadata(
-  "Kontakt",
-  "Kontakt stranica još nije dovršena, zato je privremeno izuzeta iz indeksacije."
-);
+export const metadata: Metadata = buildPageMetadata(kontaktContentHr.seo, "hr");
 
 export default function KontaktPage() {
-  return (
-    <PlaceholderPage
-      title="Kontakt"
-      description="Kontakt stranica ostaje najčišća i najmirnija, sa slobodnim opisom objekta i jasnim kontakt metodama."
-    />
-  );
+  return <KontaktPageTemplate content={kontaktContentHr} />;
 }

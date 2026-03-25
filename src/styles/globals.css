@@ -246,6 +246,10 @@ textarea {
   border-color: rgba(213, 122, 54, 0.55);
 }
 
+.eyebrow--light {
+  color: rgba(243, 241, 235, 0.64);
+}
+
 .home-hero__proof {
   display: grid;
   gap: 12px;
@@ -339,6 +343,18 @@ textarea {
   padding-bottom: 88px;
 }
 
+.page-hero {
+  padding: 132px 0 36px;
+}
+
+.page-hero__inner h1 {
+  margin: 0;
+  font-size: clamp(38px, 6vw, 74px);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  max-width: 13ch;
+}
+
 .section-heading {
   display: grid;
   gap: 14px;
@@ -428,6 +444,79 @@ textarea {
   font-weight: 600;
 }
 
+.radovi-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.radovi-card {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border-radius: var(--radius-panel);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.radovi-card__image {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.radovi-card__image img {
+  object-fit: cover;
+}
+
+.radovi-card__body {
+  display: grid;
+  gap: 14px;
+}
+
+.radovi-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.radovi-card__object {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.radovi-card h3,
+.contact-prompt-panel h2,
+.contact-sidecard h2 {
+  margin: 0;
+  font-size: clamp(28px, 3.3vw, 42px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.radovi-card__story {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.radovi-card__story dt {
+  margin: 0 0 6px;
+  color: #f1d6c0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.radovi-card__story dd {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
 .faq-list {
   display: grid;
   gap: 12px;
@@ -463,6 +552,98 @@ textarea {
 
 .contact-block__links a {
   width: fit-content;
+}
+
+.kontakt-layout {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-prompt-panel,
+.contact-sidecard {
+  padding: 24px;
+  border-radius: var(--radius-panel);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-prompt-panel {
+  display: grid;
+  gap: 20px;
+  background: var(--color-surface);
+  color: var(--color-text-dark);
+  box-shadow: var(--shadow-glass);
+}
+
+.contact-prompt-panel p {
+  margin: 0;
+  color: rgba(23, 25, 27, 0.72);
+  line-height: 1.6;
+}
+
+.contact-prompt-panel__label {
+  display: grid;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.contact-prompt-panel__label span {
+  font-size: 14px;
+  color: rgba(23, 25, 27, 0.82);
+}
+
+.contact-prompt-panel textarea {
+  width: 100%;
+  border: 1px solid rgba(23, 25, 27, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--color-text-dark);
+  padding: 16px 18px;
+  line-height: 1.55;
+  outline: none;
+}
+
+.contact-prompt-panel textarea::placeholder {
+  color: rgba(23, 25, 27, 0.48);
+}
+
+.contact-sidecard {
+  display: grid;
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.contact-sidecard p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.consent-banner {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 40;
+  display: grid;
+  gap: 18px;
+  width: min(calc(100% - 32px), 420px);
+  padding: 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(24, 26, 28, 0.92);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(20px);
+}
+
+.consent-banner p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.consent-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .service-process-list {
@@ -548,6 +729,16 @@ textarea {
 
   .service-process-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .radovi-card {
+    grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+  }
+
+  .kontakt-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+    align-items: start;
   }
 
   .contact-block {

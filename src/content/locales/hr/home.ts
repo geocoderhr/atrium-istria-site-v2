@@ -129,8 +129,10 @@ export const homeProjectsHr: ProjectCase[] = [
   {
     slug: "pula-fasada-obnova",
     title: "Obnova fasade obiteljske kuće",
+    objectType: "Obiteljska kuća",
     location: "Pula",
     service: "Fasade",
+    serviceHref: "/fasade",
     challenge: "Objekt je trebao obnovu vanjskog izgleda i jasniji završni standard.",
     workDone: "Sanacija i obnova pročelja s pažljivijim tretmanom detalja i čitljivijim rezultatom.",
     result: "Kuća sada djeluje uredno, dovršeno i puno uvjerljivije kao stvaran gotov objekt.",
@@ -140,8 +142,10 @@ export const homeProjectsHr: ProjectCase[] = [
   {
     slug: "kupaonica-rekonstrukcija",
     title: "Rekonstrukcija kupaonice",
+    objectType: "Kupaonica u stanu ili apartmanu",
     location: "Istra",
     service: "Adaptacije kupaonica",
+    serviceHref: "/adaptacije-kupaonica",
     challenge: "Zastarjeli sanitarni prostor tražio je novu organizaciju i moderniju završnu obradu.",
     workDone: "Instalacije, priprema, keramika, tuš zona i završni elementi izvedeni kao jedna cjelina.",
     result: "Dobivena je čišća, funkcionalnija i vizualno uvjerljivija kupaonica za svakodnevno korištenje.",
@@ -151,8 +155,10 @@ export const homeProjectsHr: ProjectCase[] = [
   {
     slug: "mali-objekt-rekonstrukcija",
     title: "Rekonstrukcija manjeg samostojećeg objekta",
+    objectType: "Manji samostojeći objekt",
     location: "Pula i okolica",
     service: "Rekonstrukcije kuća",
+    serviceHref: "/rekonstrukcije-kuca",
     challenge: "Objekt je prolazio kroz potpunu unutarnju obnovu, od grubih zahvata do završne faze.",
     workDone: "Organizirani su unutarnji radovi, podovi, zidovi i završno uređenje prostora.",
     result: "Prostor je preveden iz radne faze u čist, upotrebljiv i pregledno dovršen interijer.",

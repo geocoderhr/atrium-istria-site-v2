@@ -6,9 +6,10 @@ import { ConversationPanel } from "@/features/conversation/ConversationPanel";
 
 type HomeHeroSectionProps = {
   hero: HomeHeroContent;
+  locale: string;
 };
 
-export function HomeHeroSection({ hero }: HomeHeroSectionProps) {
+export function HomeHeroSection({ hero, locale }: HomeHeroSectionProps) {
   const heroStyle = {
     "--hero-image": `url("${hero.backgroundImage}")`
   } as CSSProperties;
@@ -21,7 +22,7 @@ export function HomeHeroSection({ hero }: HomeHeroSectionProps) {
           <p className="eyebrow">{hero.eyebrow}</p>
           <h1>{hero.title}</h1>
           <p className="hero-description">{hero.description}</p>
-          <ConversationPanel prompt={hero.prompt} placeholder={hero.placeholder} />
+          <ConversationPanel prompt={hero.prompt} placeholder={hero.placeholder} locale={locale} />
         </GlassPanel>
         <div className="home-hero__proof">
           {hero.proofCues.map((cue) => (
