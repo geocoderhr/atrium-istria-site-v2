@@ -52,6 +52,11 @@ export type FaqItem = {
   answer: string;
 };
 
+export type ServiceTextItem = {
+  title: string;
+  description: string;
+};
+
 export type HomePageContent = {
   seo: SeoFields;
   hero: HomeHeroContent;
@@ -93,4 +98,58 @@ export type SiteConfig = {
   defaultLocale: string;
   phone: string;
   email: string;
+};
+
+export type ServiceHeroContent = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  ctaLabel: string;
+  ctaHref: string;
+  proofCues: HeroProofCue[];
+};
+
+export type ServicePageContent = {
+  seo: SeoFields;
+  slug: string;
+  hero: ServiceHeroContent;
+  scenarios: {
+    title: string;
+    intro: string;
+    items: ServiceTextItem[];
+  };
+  scope: {
+    title: string;
+    intro: string;
+    items: ServiceTextItem[];
+  };
+  process: {
+    title: string;
+    intro: string;
+    items: ServiceTextItem[];
+  };
+  pricing: {
+    title: string;
+    intro: string;
+    items: PricingFactor[];
+  };
+  proof: {
+    title: string;
+    intro: string;
+    projects: ProjectCase[];
+  };
+  faq: {
+    title: string;
+    items: FaqItem[];
+  };
+  finalContact: {
+    title: string;
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+    phone: string;
+    email: string;
+  };
 };

@@ -1,18 +1,11 @@
 import { Metadata } from "next";
 
-import { PlaceholderPage } from "@/components/layout/PlaceholderPage";
-import { buildPlaceholderMetadata } from "@/lib/seo/placeholder-metadata";
+import { ServicePageTemplate } from "@/components/sections/service/ServicePageTemplate";
+import { hidroizolacijaHr } from "@/content/locales/hr/services";
+import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 
-export const metadata: Metadata = buildPlaceholderMetadata(
-  "Hidroizolacija",
-  "Service template za ovu stranicu još nije dovršen, zato je stranica privremeno izuzeta iz indeksacije."
-);
+export const metadata: Metadata = buildPageMetadata(hidroizolacijaHr.seo, "hr");
 
 export default function HidroizolacijaPage() {
-  return (
-    <PlaceholderPage
-      title="Hidroizolacija"
-      description="Kasnije ovdje ide specifičan sadržaj usluge, dok sada držimo ispravnu kodnu i SEO strukturu."
-    />
-  );
+  return <ServicePageTemplate content={hidroizolacijaHr} />;
 }

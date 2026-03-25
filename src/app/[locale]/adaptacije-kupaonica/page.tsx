@@ -1,18 +1,11 @@
 import { Metadata } from "next";
 
-import { PlaceholderPage } from "@/components/layout/PlaceholderPage";
-import { buildPlaceholderMetadata } from "@/lib/seo/placeholder-metadata";
+import { ServicePageTemplate } from "@/components/sections/service/ServicePageTemplate";
+import { adaptacijeKupaonicaHr } from "@/content/locales/hr/services";
+import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 
-export const metadata: Metadata = buildPlaceholderMetadata(
-  "Adaptacije kupaonica",
-  "Service template za ovu stranicu još nije dovršen, zato je stranica privremeno izuzeta iz indeksacije."
-);
+export const metadata: Metadata = buildPageMetadata(adaptacijeKupaonicaHr.seo, "hr");
 
 export default function AdaptacijeKupaonicaPage() {
-  return (
-    <PlaceholderPage
-      title="Adaptacije kupaonica"
-      description="Ovdje će doći service-page struktura sa scenarijima, opsegom radova, procesom i FAQ blokom."
-    />
-  );
+  return <ServicePageTemplate content={adaptacijeKupaonicaHr} />;
 }

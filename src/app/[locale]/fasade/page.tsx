@@ -1,18 +1,11 @@
 import { Metadata } from "next";
 
-import { PlaceholderPage } from "@/components/layout/PlaceholderPage";
-import { buildPlaceholderMetadata } from "@/lib/seo/placeholder-metadata";
+import { ServicePageTemplate } from "@/components/sections/service/ServicePageTemplate";
+import { fasadeHr } from "@/content/locales/hr/services";
+import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 
-export const metadata: Metadata = buildPlaceholderMetadata(
-  "Fasade",
-  "Service template za ovu stranicu još nije dovršen, zato je stranica privremeno izuzeta iz indeksacije."
-);
+export const metadata: Metadata = buildPageMetadata(fasadeHr.seo, "hr");
 
 export default function FasadePage() {
-  return (
-    <PlaceholderPage
-      title="Fasade"
-      description="Servisna stranica za fasade bit će povezana s istom vizualnom i sadržajnom logikom kao glavna."
-    />
-  );
+  return <ServicePageTemplate content={fasadeHr} />;
 }
