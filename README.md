@@ -1,32 +1,57 @@
 # Atrium Istria Website Foundation
 
-Стартовый пакет проекта для сайта Atrium Istria.
+Текущий рабочий репозиторий для новой версии сайта Atrium Istria.
 
-## Документы
+## Current state
 
-- `research/atrium-istria-research-2026-03.md` — исследование по UX, SEO, конкурентам, conversational lead capture и визуальному направлению.
-- `product/atrium-istria-prd-v1.md` — PRD первой версии сайта.
-- `measurement/atrium-istria-measurement-foundation.md` — аналитический и measurement-контур для GTM, GA4, GSC и consent mode.
-- `measurement/google-stack-launch-checklist.md` — практический чеклист запуска и доступа к Google-стеку.
-- `ops/mcp-skills-audit.md` — аудит доступных MCP-клиентов, навыков и внешних зависимостей.
+- `research`, `product`, `measurement` и `ops` документы уже собраны.
+- `git` и `GitHub` уже подключены.
+- `Next.js` scaffold уже поднят.
+- Homepage уже собрана как первый `code-first prototype`.
+- `Search Console` verification уже встроен двумя способами:
+  - `public/googlef7f14d5470db83ba.html`
+  - `google-site-verification` в root metadata
 
-## Контекст
+## Main documents
 
-- Язык рабочих документов: русский.
-- Приоритетный рынок v1: Croatia + Istria.
-- Контентная структура v1:
-  - `/`
-  - `/adaptacije-kuca-i-stanova`
-  - `/adaptacije-kupaonica`
-  - `/fasade`
-  - `/rekonstrukcije-kuca`
-  - `/hidroizolacija`
-  - `/radovi`
-  - `/kontakt`
+- `research/atrium-istria-research-2026-03.md` — UX, SEO, competitor and conversational-entry research.
+- `product/atrium-istria-prd-v1.md` — v1 PRD.
+- `product/atrium-istria-visual-direction-brief.md` — visual direction and reference synthesis.
+- `product/atrium-istria-homepage-blueprint.md` — homepage block logic.
+- `product/atrium-istria-homepage-implementation-spec.md` — homepage implementation source of truth.
+- `product/atrium-istria-service-page-template-blueprint.md` — reusable service-page logic.
+- `product/atrium-istria-radovi-blueprint.md` — `Radovi` page logic.
+- `measurement/atrium-istria-measurement-foundation.md` — GTM/GA4/GSC/Consent foundation.
+- `measurement/google-stack-launch-checklist.md` — launch checklist for Google stack.
 
-## Что дальше
+## Current code baseline
 
-1. Превратить PRD в информационную архитектуру и контент-модель.
-2. Собрать дизайн-концепцию в Figma на базе research.
-3. Зафиксировать технический стек сайта и структуру кода.
-4. После подтверждения домена и доступов подключить GTM, GA4, GSC и consent banner.
+- Homepage route:
+  - `src/app/[locale]/page.tsx`
+- Homepage content:
+  - `src/content/locales/hr/home.ts`
+- Homepage sections:
+  - `src/components/sections/home/`
+- Root metadata and verification:
+  - `src/app/layout.tsx`
+- Search Console HTML verification file:
+  - `public/googlef7f14d5470db83ba.html`
+
+## Locked project direction
+
+- Primary market: `Croatia + Istria`
+- Primary language for the first full pass: `hr`
+- Working method: `code-first`
+- Homepage is the current reference page for:
+  - visual language
+  - section rhythm
+  - conversational hero
+  - content structure
+
+## What comes next
+
+1. Build one reusable `service template`.
+2. Use that template for 5 service pages.
+3. Build `Radovi`.
+4. Build `Kontakt`.
+5. Run deeper SEO / analytics / consent pass.

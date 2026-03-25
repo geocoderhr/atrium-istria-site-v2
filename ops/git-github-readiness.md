@@ -1,75 +1,23 @@
 # Git and GitHub Readiness
 
 Дата: 2026-03-25  
-Статус: pre-implementation checklist
+Статус: completed foundation step
 
-## When to do it
+## Current status
 
-Connect git and GitHub before the first real code scaffold starts.
+Git and GitHub have already been connected at the correct stage.
 
-This step sits:
+Completed milestones:
 
-- after the homepage Figma concept is approved
-- after the service and `Radovi` adaptation package is reviewed
-- before the first `Next.js` scaffold files are created
+1. Local git repository initialized
+2. GitHub repository connected
+3. Docs foundation committed
+4. Next.js scaffold committed
+5. Homepage prototype committed
 
-## Required sequence
-
-1. Initialize local git repository
-2. Create GitHub repository
-3. First commit: docs foundation
-4. Second commit: project scaffold
-
-## What should already exist before this step
-
-- PRD and research docs
-- visual direction brief
-- homepage blueprint
-- homepage implementation spec
-- Figma homepage concept package
-- service-page and `Radovi` adaptation package
-- technical architecture brief
-- implementation order
-
-## Recommended first commit groups
-
-Commit 1:
-
-- `research/`
-- `product/`
-- `measurement/`
-- `ops/`
-
-Commit 2:
-
-- `package.json` and project shell
-- `src/app/`
-- `src/styles/`
-- `src/content/schema.ts`
-- initial `public/` structure
-
-## Why this timing is correct
-
-- design logic is already stable enough
-- engineering can start from a clean baseline
-- Search Console and measurement setup can be tracked from the beginning
-- later SEO or layout changes stay attributable to a specific milestone
-
-## Why not later
+## Why this still matters
 
 - avoids local drift
 - preserves architecture history
 - keeps documentation and scaffold milestones traceable
-- makes rollback possible from the start
-
-## First milestone groups
-
-- research + PRD + blueprints
-- technical architecture
-- homepage implementation spec
-- Figma package approval
-- scaffold start
-
-## Rule
-
-Do not start the real scaffold before git and GitHub are connected.
+- makes homepage and next template phases easy to diff and review

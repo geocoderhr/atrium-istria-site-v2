@@ -1,90 +1,59 @@
 # Atrium Istria Implementation Order
 
 Дата: 2026-03-25  
-Статус: build roadmap
+Статус: current build roadmap after homepage prototype
 
 ## 1. Lock implementation inputs
 
-- confirm `homepage implementation spec`
-- confirm homepage Figma concept package
-- confirm service-page and `Radovi` adaptation package
-- keep all design and architecture docs as source of truth
+- use current homepage implementation spec
+- treat the built homepage as current UI reference
+- keep design and architecture docs aligned with the real implementation
 
-## 2. Initialize git and connect GitHub
+## 2. Completed foundation milestones
 
-- initialize local git repository
-- create GitHub repository
-- commit documentation foundation first
-- only then begin real code scaffold
+- git and GitHub are already connected
+- Next.js scaffold already exists
+- locale-aware routing already exists
+- Search Console verification file and root metadata are already in place
+- homepage-first prototype is already implemented
 
-## 3. Initialize project shell
+## 3. Sync docs to the actual homepage
 
-- create Next.js App Router project
-- enable TypeScript
-- use `src/` structure
-- create base root layout
-- reserve root metadata ownership in `src/app/layout.tsx`
-- create `public/site/` asset structure
-- prepare `public/` for Search Console verification file
+- update README and phase docs to reflect code-first reality
+- mark homepage as the current source of truth
+- remove outdated references to mandatory Figma-before-code flow
 
-## 4. Create routing and locale architecture
-
-- add `[locale]` route segment
-- add locale-aware layouts
-- create page routes for all v1 pages
-- define locale config and path helpers
-
-## 5. Create tokens and global styling system
-
-- create `styles/tokens.css`
-- create `styles/globals.css`
-- define color tokens
-- define spacing tokens
-- define typography scale
-- define glass-panel surface rules
-
-## 6. Create layout and shared UI
-
-- build header
-- build footer
-- build page shell
-- build buttons, panels, cards, FAQ item, input panel, language switch
-- keep all shared UI reusable and page-agnostic
-- reserve GTM insertion point in root layout
-- reserve consent-aware global script boundary
-
-## 7. Create homepage sections and hero
-
-- build homepage route
-- wire homepage content file
-- implement hero as a dedicated layered system
-- implement conversation panel as separate feature area
-- complete all homepage sections in final block order
-
-## 8. Create service template, Radovi and Kontakt
+## 4. Create service template
 
 - build reusable service-page sections
-- connect 5 service content files
-- build `Radovi` case-based page
-- build `Kontakt` page with clear conversation entry
+- define service content shape
+- reuse header, section rhythm, CTA logic and visual language from homepage
 
-## 9. Connect SEO and measurement surfaces
+## 5. Build the 5 service pages
+
+- connect 5 service content files
+- keep one shared service skeleton
+- preserve SEO-first structure on every service route
+
+## 6. Build `Radovi` and `Kontakt`
+
+- build `Radovi` as a case-based page, not a gallery
+- build `Kontakt` as the cleanest conversation-entry page
+- keep CTA behavior aligned with homepage
+
+## 7. Deepen SEO and measurement surfaces
 
 - implement metadata generation
-- add root `google-site-verification` meta
 - add canonical and hreflang helpers
-- add sitemap and robots
 - add JSON-LD
-- copy `googlef7f14d5470db83ba.html` into `public/`
 - connect analytics-ready hooks and consent-aware integration points
 - keep GTM/GA4 integration global, not section-local
 
 ## Outcome
 
-After these 9 steps the project should have:
+After these steps the project should have:
 
-- complete SEO-ready route structure
-- homepage-first implementation
+- homepage as the stable visual and structural reference
 - reusable service architecture
 - case-based `Radovi`
 - clean separation between content, UI, layout, features and SEO

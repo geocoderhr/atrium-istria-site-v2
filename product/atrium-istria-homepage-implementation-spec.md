@@ -1,7 +1,7 @@
 # Atrium Istria Homepage Implementation Spec
 
 Дата: 2026-03-25  
-Статус: implementation-ready homepage spec  
+Статус: implemented and current homepage reference  
 Основа: PRD, homepage blueprint, visual direction brief, technical architecture brief, photo mapping plan
 
 ## 1. Homepage ownership
@@ -27,11 +27,6 @@ It must define:
 
 - `src/content/locales/hr/home.ts`
 
-### Supporting content sources
-
-- `src/content/locales/hr/projects.ts`
-- `src/content/locales/hr/faq.ts`
-
 ### Supporting code zones
 
 - `src/components/layout/`
@@ -54,15 +49,13 @@ Homepage must render sections in this exact order:
 8. `HomeFinalContactSection`
 9. `SiteFooter`
 
-## 4. Homepage content schema
+## 4. Current homepage content schema
 
 ```ts
 export type SeoFields = {
   title: string;
   description: string;
-  ogTitle?: string;
-  ogDescription?: string;
-  canonicalPath: string;
+  path: string;
 };
 
 export type HeroProofCue = {
@@ -71,40 +64,31 @@ export type HeroProofCue = {
 };
 
 export type HomeHeroContent = {
-  eyebrow?: string;
+  eyebrow: string;
   title: string;
   description: string;
   prompt: string;
   placeholder: string;
   backgroundImage: string;
-  backgroundAlt: string;
   proofCues: HeroProofCue[];
 };
 
-export type ServiceScenarioItem = {
+export type ServicesProcessItem = {
   title: string;
   description: string;
   href: string;
 };
 
-export type ProcessStartItem = {
+export type ProjectCase = {
+  slug: string;
   title: string;
-  description: string;
-};
-
-export type HomeServicesProcessContent = {
-  sectionTitle: string;
-  sectionIntro: string;
-  serviceScenarios: ServiceScenarioItem[];
-  processStart: ProcessStartItem[];
-};
-
-export type HomeSelectedProjectsContent = {
-  sectionTitle: string;
-  sectionIntro: string;
-  featuredProjectSlugs: string[];
-  ctaLabel: string;
-  ctaHref: string;
+  location: string;
+  service: string;
+  challenge: string;
+  workDone: string;
+  result: string;
+  image: string;
+  imageAlt: string;
 };
 
 export type TrustSignal = {
@@ -112,58 +96,59 @@ export type TrustSignal = {
   description: string;
 };
 
-export type HomeTrustContent = {
-  sectionTitle: string;
-  sectionIntro: string;
-  signals: TrustSignal[];
-};
-
 export type PricingFactor = {
   title: string;
   description: string;
 };
 
-export type HomePricingLogicContent = {
-  sectionTitle: string;
-  sectionIntro: string;
-  factors: PricingFactor[];
-};
-
-export type HomeFaqContent = {
-  sectionTitle: string;
-  sectionIntro: string;
-  faqIds: string[];
-};
-
-export type HomeFinalContactContent = {
-  sectionTitle: string;
-  description: string;
-  prompt: string;
-  phoneLabel: string;
-  phoneValue: string;
-  emailLabel?: string;
-  emailValue?: string;
+export type FaqItem = {
+  question: string;
+  answer: string;
 };
 
 export type HomePageContent = {
   seo: SeoFields;
   hero: HomeHeroContent;
-  servicesProcess: HomeServicesProcessContent;
-  selectedProjects: HomeSelectedProjectsContent;
-  trust: HomeTrustContent;
-  pricingLogic: HomePricingLogicContent;
-  faq: HomeFaqContent;
-  finalContact: HomeFinalContactContent;
+  servicesProcess: {
+    title: string;
+    intro: string;
+    items: ServicesProcessItem[];
+  };
+  selectedProjects: {
+    title: string;
+    intro: string;
+    ctaLabel: string;
+    ctaHref: string;
+  };
+  trust: {
+    title: string;
+    items: TrustSignal[];
+  };
+  pricingLogic: {
+    title: string;
+    intro: string;
+    factors: PricingFactor[];
+  };
+  faq: {
+    title: string;
+    items: FaqItem[];
+  };
+  finalContact: {
+    title: string;
+    description: string;
+    phone: string;
+    email: string;
+  };
 };
 ```
 
-## 5. Section props
+## 5. Current section props
 
 ### `HomeHeroSection`
 
 Props:
 
-- `content: HomeHeroContent`
+- `hero: HomeHeroContent`
 
 Dependencies:
 
@@ -175,7 +160,8 @@ Dependencies:
 
 Props:
 
-- `content: HomeServicesProcessContent`
+- `section: HomePageContent["servicesProcess"]`
+- `locale: Locale`
 
 Dependencies:
 
@@ -186,8 +172,9 @@ Dependencies:
 
 Props:
 
-- `content: HomeSelectedProjectsContent`
+- `section: HomePageContent["selectedProjects"]`
 - `projects: ProjectCase[]`
+- `locale: Locale`
 
 Dependencies:
 
@@ -198,7 +185,7 @@ Dependencies:
 
 Props:
 
-- `content: HomeTrustContent`
+- `section: HomePageContent["trust"]`
 
 Dependencies:
 
@@ -208,7 +195,7 @@ Dependencies:
 
 Props:
 
-- `content: HomePricingLogicContent`
+- `section: HomePageContent["pricingLogic"]`
 
 Dependencies:
 
@@ -218,8 +205,7 @@ Dependencies:
 
 Props:
 
-- `content: HomeFaqContent`
-- `items: FaqItem[]`
+- `section: HomePageContent["faq"]`
 
 Dependencies:
 
@@ -229,7 +215,8 @@ Dependencies:
 
 Props:
 
-- `content: HomeFinalContactContent`
+- `section: HomePageContent["finalContact"]`
+- `locale: Locale`
 
 Dependencies:
 
@@ -239,7 +226,7 @@ Dependencies:
 
 ## 6. Server vs client boundary
 
-### Server components
+### Current server components
 
 These should stay server-rendered:
 
@@ -254,7 +241,7 @@ These should stay server-rendered:
 - FAQ content
 - final contact copy
 
-### Client components
+### Current client-side interactivity
 
 Keep client-side interactivity only where needed:
 
