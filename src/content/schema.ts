@@ -22,15 +22,19 @@ export type HomeHeroContent = {
 export type ServicesProcessItem = {
   title: string;
   description: string;
+  href: string;
 };
 
 export type ProjectCase = {
   slug: string;
   title: string;
   location: string;
-  summary: string;
+  service: string;
+  challenge: string;
+  workDone: string;
   result: string;
   image: string;
+  imageAlt: string;
 };
 
 export type TrustSignal = {
@@ -59,6 +63,8 @@ export type HomePageContent = {
   selectedProjects: {
     title: string;
     intro: string;
+    ctaLabel: string;
+    ctaHref: string;
   };
   trust: {
     title: string;

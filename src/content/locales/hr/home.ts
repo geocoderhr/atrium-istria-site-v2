@@ -4,104 +4,122 @@ export const homeContentHr: HomePageContent = {
   seo: {
     title: "Adaptacije, fasade i rekonstrukcije u Puli i Istri",
     description:
-      "Atrium Istria vodi adaptacije kuća i stanova, kupaonice, fasade, rekonstrukcije i hidroizolaciju s jasnim procesom, preglednom komunikacijom i fokusom na kvalitetan rezultat.",
+      "Atrium Istria vodi adaptacije kuća i stanova, kupaonice, fasade, rekonstrukcije i hidroizolaciju u Puli i Istri, s jasnim procesom i preglednom komunikacijom od prvog kontakta.",
     path: "/"
   },
   hero: {
-    eyebrow: "Atrium Istria",
-    title: "Građevinski radovi u Puli i Istri, vođeni kao ozbiljan projekt.",
+    eyebrow: "Atrium Istria | Pula i Istra",
+    title: "Adaptacije, fasade i rekonstrukcije vođene kao ozbiljan projekt.",
     description:
-      "Za kuće, stanove, apartmane i objekte koji traže jasan proces, odgovornu izvedbu i normalnu komunikaciju od prvog razgovora.",
-    prompt: "Recite ukratko o objektu i koje radove trebate.",
-    placeholder: "Na primjer: kuća u Puli, rekonstrukcija prizemlja i nova fasada...",
+      "Za kuće, stanove, apartmane i objekte kojima trebaju jasni koraci, uredna izvedba i normalna komunikacija bez kaosa i bez praznih obećanja.",
+    prompt: "Opišite objekt i koje radove planirate.",
+    placeholder:
+      "Primjer: kuća u Puli, obnova fasade i adaptacija prizemlja, želimo procjenu i prvi razgovor...",
     backgroundImage: "/site/hero/atrium-hero-exterior.jpg",
     proofCues: [
-      { label: "Lokacija", value: "Pula i Istra" },
-      { label: "Fokus", value: "Adaptacije i rekonstrukcije" },
-      { label: "Pristup", value: "Jasan proces i pregled rada" }
+      { label: "Područje rada", value: "Pula i Istra" },
+      { label: "Prvi korak", value: "Slobodan opis objekta, bez kviza" },
+      { label: "Fokus", value: "Kuće, stanovi, kupaonice i rekonstrukcije" }
     ]
   },
   servicesProcess: {
-    title: "S kojim zadacima možete doći i kako rad počinje",
+    title: "S kojim zadacima možete doći i kako suradnja počinje",
     intro:
-      "Stranica odmah mora objasniti ne samo koje radove radimo, nego i kako izgleda prvi korak suradnje: pregled objekta, razumijevanje opsega i realna procjena.",
+      "Glavna stranica mora odmah objasniti dvije stvari: koje tipove radova vodimo i kako izgleda normalan početak suradnje, od prvog opisa do pregleda opsega i realne procjene.",
     items: [
       {
         title: "Adaptacije kuća i stanova",
-        description: "Od parcijalnih zahvata do cjelovitog uređenja interijera."
+        description:
+          "Od parcijalnih zahvata do cjelovite obnove interijera, s preglednim koracima i jasnim prioritetima.",
+        href: "/adaptacije-kuca-i-stanova"
       },
       {
         title: "Adaptacije kupaonica",
-        description: "Rušenje, nove instalacije, keramika i završna oprema."
+        description:
+          "Rušenje, instalacije, priprema, keramika i završna oprema u jednoj odgovorno vođenoj cjelini.",
+        href: "/adaptacije-kupaonica"
       },
       {
         title: "Fasade, rekonstrukcije i hidroizolacija",
-        description: "Vanjski radovi koji traže kontrolu detalja i odgovornu izvedbu."
+        description:
+          "Vanjski i konstruktivni radovi koji traže točnost u procjeni, zaštiti objekta i završnoj izvedbi.",
+        href: "/fasade"
       }
     ]
   },
   selectedProjects: {
     title: "Odabrani radovi",
     intro:
-      "Ne pokazujemo slučajne fotografije. Svaki primjer treba objasniti što je bilo, što je napravljeno i kakav je rezultat."
+      "Ne prikazujemo nasumične fotografije. Svaki projekt ovdje treba pokazati što je bilo, što smo napravili i kakav je rezultat za objekt.",
+    ctaLabel: "Pogledajte sve radove",
+    ctaHref: "/radovi"
   },
   trust: {
-    title: "Zašto ova stranica mora ulijevati povjerenje",
+    title: "Zašto stranica mora ostavljati dojam organizirane tvrtke, a ne stihijske ekipe",
     items: [
       {
-        title: "Jasna komunikacija",
-        description: "Bez kvizova, bez kaosa, bez forsiranja kanala prije nego što korisnik razumije pristup."
+        title: "Jasan početak komunikacije",
+        description:
+          "Korisnik može krenuti kratkim opisom objekta i radova, bez forsiranih scenarija i bez osjećaja da priča s botom."
       },
       {
-        title: "Stvarni objekti",
-        description: "Fotografije i slučajevi trebaju podupirati osjećaj realnog rada i kontrole nad projektom."
+        title: "Radovi prikazani kao proces",
+        description:
+          "Primjeri se ne svode na lijepe fotografije, nego pokazuju što je izvedeno i kakva je vrijednost rezultata."
       },
       {
-        title: "Praktična procjena",
-        description: "Cijena ovisi o opsegu, stanju objekta, materijalima i pristupu izvedbi."
+        title: "Ozbiljna procjena zadatka",
+        description:
+          "Cijena i izvedba ovise o stvarnom stanju objekta, opsegu i tehničkim detaljima, ne o generičnoj formuli."
       }
     ]
   },
   pricingLogic: {
     title: "Od čega ovisi procjena i cijena",
     intro:
-      "Na glavnoj stranici mora postojati pošten blok koji objašnjava kako se zadatak procjenjuje prije ponude.",
+      "Na ovoj stranici otvoreno objašnjavamo što utječe na procjenu, kako bi upit bio kvalitetniji, a prvi razgovor konkretniji.",
     factors: [
       {
         title: "Stanje objekta",
-        description: "Koliko pripremnih i sanacijskih radova objekt stvarno traži."
+        description:
+          "Drugačije se vodi uredan prostor za doradu, a drugačije objekt koji prvo traži sanaciju ili pripremne radove."
       },
       {
-        title: "Opseg zahvata",
-        description: "Je li riječ o jednoj zoni ili o povezanom paketu radova."
+        title: "Opseg i povezanost radova",
+        description:
+          "Jedna kupaonica, cijeli stan ili rekonstrukcija manjeg objekta nisu isti zadaci ni po dinamici ni po organizaciji."
       },
       {
-        title: "Materijali i detalji izvedbe",
-        description: "Različita tehnička rješenja i završne obrade mijenjaju dinamiku i budžet."
+        title: "Materijali i završna razina",
+        description:
+          "Izbor rješenja, detalja i završnih slojeva izravno utječe na budžet, trajanje i razinu kontrole u izvedbi."
       }
     ]
   },
   faq: {
-    title: "Najčešća pitanja",
+    title: "Najčešća pitanja prije prvog kontakta",
     items: [
       {
-        question: "Možemo li krenuti samo s opisom zadatka?",
-        answer: "Da. Prvi kontakt može biti kratak opis objekta i radova, a zatim se definira sljedeći korak."
+        question: "Možemo li krenuti samo s kratkim opisom zadatka?",
+        answer:
+          "Da. Dovoljan je normalan opis objekta, lokacije i radova koje planirate. Nakon toga slijedi pojašnjenje opsega i idući konkretan korak."
       },
       {
-        question: "Radite li samo Pulu?",
-        answer: "Primarni fokus su Pula i Istra, ovisno o tipu projekta i opsegu radova."
+        question: "Radite li samo privatne objekte?",
+        answer:
+          "Primarni fokus su kuće, stanovi, apartmani i manji objekti u Puli i Istri, ali pristup je dovoljno jasan i za druge tipove projekata."
       },
       {
-        question: "Možete li preuzeti rekonstrukciju cijelog objekta?",
-        answer: "Da, ako projekt traži cjelovitu organizaciju i jasno vođenje procesa."
+        question: "Možete li preuzeti i šire rekonstrukcije?",
+        answer:
+          "Da, kada projekt traži povezane radove i ozbiljno vođenje procesa, ne samo pojedinačnu intervenciju."
       }
     ]
   },
   finalContact: {
     title: "Pošaljite objekt i krenimo normalno, bez nepotrebnog kompliciranja.",
     description:
-      "Napišite što imate, gdje se objekt nalazi i koje radove planirate. Nakon toga ide pregled, pojašnjenje opsega i realan sljedeći korak.",
+      "Napišite gdje je objekt, što planirate i koji je okvir zadatka. Nakon toga ide pregled, pojašnjenje opsega i realan sljedeći korak.",
     phone: "+385 91 000 0000",
     email: "info@atriumistria.com"
   }
@@ -109,27 +127,36 @@ export const homeContentHr: HomePageContent = {
 
 export const homeProjectsHr: ProjectCase[] = [
   {
-    slug: "pula-stan-adaptacija",
-    title: "Adaptacija stana u Puli",
+    slug: "pula-fasada-obnova",
+    title: "Obnova fasade obiteljske kuće",
     location: "Pula",
-    summary: "Reorganizacija interijera i obnova ključnih zona stana.",
-    result: "Čistiji raspored, bolja funkcija i suvremeniji završni dojam.",
-    image: "/site/projects/pula-stan-adaptacija.jpg"
+    service: "Fasade",
+    challenge: "Objekt je trebao obnovu vanjskog izgleda i jasniji završni standard.",
+    workDone: "Sanacija i obnova pročelja s pažljivijim tretmanom detalja i čitljivijim rezultatom.",
+    result: "Kuća sada djeluje uredno, dovršeno i puno uvjerljivije kao stvaran gotov objekt.",
+    image: "/site/projects/pula-fasada-obnova.jpg",
+    imageAlt: "Obnovljena fasada kuće u Puli"
   },
   {
-    slug: "istra-kupaonica-rekonstrukcija",
+    slug: "kupaonica-rekonstrukcija",
     title: "Rekonstrukcija kupaonice",
     location: "Istra",
-    summary: "Zamjena instalacija, nova keramika i uredniji detalji izvedbe.",
-    result: "Pouzdanija funkcija i jasniji završni standard prostora.",
-    image: "/site/projects/kupaonica-rekonstrukcija.jpg"
+    service: "Adaptacije kupaonica",
+    challenge: "Zastarjeli sanitarni prostor tražio je novu organizaciju i moderniju završnu obradu.",
+    workDone: "Instalacije, priprema, keramika, tuš zona i završni elementi izvedeni kao jedna cjelina.",
+    result: "Dobivena je čišća, funkcionalnija i vizualno uvjerljivija kupaonica za svakodnevno korištenje.",
+    image: "/site/projects/kupaonica-rekonstrukcija.jpg",
+    imageAlt: "Završena kupaonica s tuš kabinom i keramikom"
   },
   {
-    slug: "pula-kuca-fasada",
-    title: "Fasada i vanjska sanacija kuće",
-    location: "Pula",
-    summary: "Obnova vanjske ovojnice s fokusom na zaštitu i uredan rezultat.",
-    result: "Mirniji, precizniji i dugoročno održiv izgled objekta.",
-    image: "/site/projects/pula-kuca-fasada.jpg"
+    slug: "mali-objekt-rekonstrukcija",
+    title: "Rekonstrukcija manjeg samostojećeg objekta",
+    location: "Pula i okolica",
+    service: "Rekonstrukcije kuća",
+    challenge: "Objekt je prolazio kroz potpunu unutarnju obnovu, od grubih zahvata do završne faze.",
+    workDone: "Organizirani su unutarnji radovi, podovi, zidovi i završno uređenje prostora.",
+    result: "Prostor je preveden iz radne faze u čist, upotrebljiv i pregledno dovršen interijer.",
+    image: "/site/projects/pula-stan-adaptacija.jpg",
+    imageAlt: "Završen interijer manjeg obnovljenog objekta"
   }
 ];

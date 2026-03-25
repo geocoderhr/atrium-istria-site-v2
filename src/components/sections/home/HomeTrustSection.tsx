@@ -1,8 +1,10 @@
-import { homeContentHr } from "@/content/locales/hr/home";
+import { HomePageContent } from "@/content/schema";
 
-export function HomeTrustSection() {
-  const section = homeContentHr.trust;
+type HomeTrustSectionProps = {
+  section: HomePageContent["trust"];
+};
 
+export function HomeTrustSection({ section }: HomeTrustSectionProps) {
   return (
     <section className="home-section home-section--soft">
       <div className="container stack-lg">

@@ -1,8 +1,10 @@
-import { homeContentHr } from "@/content/locales/hr/home";
+import { HomePageContent } from "@/content/schema";
 
-export function HomePricingLogicSection() {
-  const section = homeContentHr.pricingLogic;
+type HomePricingLogicSectionProps = {
+  section: HomePageContent["pricingLogic"];
+};
 
+export function HomePricingLogicSection({ section }: HomePricingLogicSectionProps) {
   return (
     <section className="home-section">
       <div className="container stack-lg">

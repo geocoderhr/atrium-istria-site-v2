@@ -1,8 +1,10 @@
-import { homeContentHr } from "@/content/locales/hr/home";
+import { HomePageContent } from "@/content/schema";
 
-export function HomeFaqSection() {
-  const section = homeContentHr.faq;
+type HomeFaqSectionProps = {
+  section: HomePageContent["faq"];
+};
 
+export function HomeFaqSection({ section }: HomeFaqSectionProps) {
   return (
     <section className="home-section home-section--soft">
       <div className="container stack-lg">

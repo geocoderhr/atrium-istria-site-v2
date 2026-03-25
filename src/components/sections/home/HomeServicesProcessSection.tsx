@@ -1,8 +1,14 @@
-import { homeContentHr } from "@/content/locales/hr/home";
+import Link from "next/link";
 
-export function HomeServicesProcessSection() {
-  const section = homeContentHr.servicesProcess;
+import { HomePageContent } from "@/content/schema";
+import { Locale } from "@/lib/routing/locales";
 
+type HomeServicesProcessSectionProps = {
+  section: HomePageContent["servicesProcess"];
+  locale: Locale;
+};
+
+export function HomeServicesProcessSection({ section, locale }: HomeServicesProcessSectionProps) {
   return (
     <section className="home-section">
       <div className="container stack-lg">
@@ -15,6 +21,9 @@ export function HomeServicesProcessSection() {
             <article key={item.title} className="info-card">
               <h3>{item.title}</h3>
               <p>{item.description}</p>
+              <Link className="section-link" href={`/${locale}${item.href}`}>
+                Otvorite uslugu
+              </Link>
             </article>
           ))}
         </div>
