@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { Locale, locales } from "@/lib/routing/locales";
 
@@ -11,6 +12,11 @@ type LanguageSwitchProps = {
 
 export function LanguageSwitch({ locale }: LanguageSwitchProps) {
   const pathname = usePathname();
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    setHash(window.location.hash || "");
+  }, [pathname]);
 
   function buildLocaleHref(targetLocale: Locale) {
     const segments = pathname.split("/").filter(Boolean);
@@ -21,10 +27,10 @@ export function LanguageSwitch({ locale }: LanguageSwitchProps) {
 
     if (locales.includes(segments[0] as Locale)) {
       segments[0] = targetLocale;
-      return `/${segments.join("/")}`;
+      return `/${segments.join("/")}${hash}`;
     }
 
-    return `/${targetLocale}/${segments.join("/")}`;
+    return `/${targetLocale}/${segments.join("/")}${hash}`;
   }
 
   return (

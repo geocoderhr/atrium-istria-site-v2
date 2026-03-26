@@ -18,10 +18,10 @@ export function ConversationPanel({ prompt, placeholder, locale }: ConversationP
   const ui = getUiCopy(locale);
 
   function handleContinue() {
-    const target = `/${locale}/kontakt`;
+    const target = `/${locale}`;
     const query = value.trim() ? `?opis=${encodeURIComponent(value.trim())}` : "";
 
-    router.push(`${target}${query}`);
+    router.push(`${target}${query}#contact`);
   }
 
   return (

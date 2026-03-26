@@ -22,9 +22,9 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           <LanguageSwitch locale={locale} />
         </div>
         <nav className="site-nav" aria-label="Primary">
-          <Link href={`/${locale}/adaptacije-kuca-i-stanova`}>{ui.navServices}</Link>
-          <Link href={`/${locale}/radovi`}>{ui.navProjects}</Link>
-          <Link href={`/${locale}/kontakt`}>{ui.navContact}</Link>
+          <Link href={`/${locale}#services`}>{ui.navServices}</Link>
+          <Link href={`/${locale}#works`}>{ui.navProjects}</Link>
+          <Link href={`/${locale}#contact`}>{ui.navContact}</Link>
         </nav>
         <a className="site-phone" href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}>
           {siteConfig.phone}

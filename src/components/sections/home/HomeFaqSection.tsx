@@ -6,7 +6,7 @@ type HomeFaqSectionProps = {
 
 export function HomeFaqSection({ section }: HomeFaqSectionProps) {
   return (
-    <section className="home-section home-section--soft">
+    <section id="faq" className="home-section home-section--soft">
       <div className="container stack-lg">
         <div className="section-heading">
           <h2>{section.title}</h2>

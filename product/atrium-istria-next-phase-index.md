@@ -12,11 +12,11 @@
 6. Implementation scaffold in code
 7. Homepage prototype in code
 8. Docs sync after homepage pass
-9. Service template
-10. 5 service pages
-11. `Radovi`
-12. `Kontakt`
-13. deeper SEO / analytics pass
+9. Compact one-page IA refactor
+10. Docs sync after compact pass
+11. visual and content polish
+12. deeper SEO / analytics pass
+13. `en` locale later
 
 ## Design and content docs already prepared
 
@@ -53,16 +53,20 @@
 
 После этого можно переходить к:
 
-- reusable service template implementation
-- 5 service pages based on one template
-- `Radovi` implementation
-- `Kontakt` implementation
+- compact homepage review
+- mobile and tablet refinement
+- real contact data replacement
 - deeper SEO, measurement and consent integration
+- `en` locale once structure is approved
 
 ## Current execution rule
 
 Homepage in code is now the current reference page.
 
+Public UX is now intentionally `one-page per locale`.
+
+Separate service routes, `radovi` and `kontakt` are preserved in code as redirect surfaces, not as the main browsing model.
+
 The locked path from now on is:
 
-`homepage prototype -> docs sync -> service template -> service pages -> Radovi -> Kontakt -> deeper SEO/analytics`
+`homepage prototype -> compact one-page pass -> docs sync -> polish -> deeper SEO/analytics -> later en locale`

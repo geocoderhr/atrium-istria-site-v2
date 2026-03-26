@@ -2,13 +2,12 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { HomeFaqSection } from "@/components/sections/home/HomeFaqSection";
-import { HomeFinalContactSection } from "@/components/sections/home/HomeFinalContactSection";
+import { HomeContactSection } from "@/components/sections/home/HomeContactSection";
 import { HomeHeroSection } from "@/components/sections/home/HomeHeroSection";
-import { HomePricingLogicSection } from "@/components/sections/home/HomePricingLogicSection";
+import { HomeHowWeWorkSection } from "@/components/sections/home/HomeHowWeWorkSection";
 import { HomeSelectedProjectsSection } from "@/components/sections/home/HomeSelectedProjectsSection";
-import { HomeServicesProcessSection } from "@/components/sections/home/HomeServicesProcessSection";
-import { HomeTrustSection } from "@/components/sections/home/HomeTrustSection";
-import { getHomeContent } from "@/content/locales/content";
+import { HomeServicesSection } from "@/components/sections/home/HomeServicesSection";
+import { getHomeContent, getKontaktContent, getProjectCases, getServicesCollection } from "@/content/locales/content";
 import { siteConfig } from "@/content/site-config";
 import { isSupportedLocale, Locale } from "@/lib/routing/locales";
 
@@ -46,17 +45,30 @@ export default async function HomePage({ params }: HomePageProps) {
     notFound();
   }
 
-  const { content, projects } = getHomeContent(locale);
+  const { content } = getHomeContent(locale as Locale);
+  const services = getServicesCollection(locale as Locale);
+  const projects = getProjectCases(locale as Locale).slice(0, 5);
+  const contactContent = getKontaktContent(locale as Locale);
 
   return (
     <>
       <HomeHeroSection hero={content.hero} locale={locale as Locale} />
-      <HomeServicesProcessSection section={content.servicesProcess} locale={locale as Locale} />
+      <HomeServicesSection
+        title={content.servicesProcess.title}
+        intro={content.servicesProcess.intro}
+        services={services}
+        locale={locale as Locale}
+      />
+      <HomeHowWeWorkSection
+        title={content.pricingLogic.title}
+        intro={content.pricingLogic.intro}
+        trustItems={content.trust.items}
+        pricingFactors={content.pricingLogic.factors}
+        locale={locale as Locale}
+      />
       <HomeSelectedProjectsSection section={content.selectedProjects} projects={projects} locale={locale as Locale} />
-      <HomeTrustSection section={content.trust} />
-      <HomePricingLogicSection section={content.pricingLogic} />
       <HomeFaqSection section={content.faq} />
-      <HomeFinalContactSection section={content.finalContact} locale={locale as Locale} />
+      <HomeContactSection content={contactContent} locale={locale as Locale} />
     </>
   );
 }

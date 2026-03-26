@@ -25,6 +25,7 @@ It must define:
 
 ### Homepage content source
 
+- `src/content/locales/ru/home.ts`
 - `src/content/locales/hr/home.ts`
 
 ### Supporting code zones
@@ -41,13 +42,12 @@ Homepage must render sections in this exact order:
 
 1. `SiteHeader`
 2. `HomeHeroSection`
-3. `HomeServicesProcessSection`
+3. `HomeServicesSection`
 4. `HomeSelectedProjectsSection`
-5. `HomeTrustSection`
-6. `HomePricingLogicSection`
-7. `HomeFaqSection`
-8. `HomeFinalContactSection`
-9. `SiteFooter`
+5. `HomeHowWeWorkSection`
+6. `HomeFaqSection`
+7. `HomeContactSection`
+8. `SiteFooter`
 
 ## 4. Current homepage content schema
 
@@ -73,10 +73,12 @@ export type HomeHeroContent = {
   proofCues: HeroProofCue[];
 };
 
-export type ServicesProcessItem = {
+export type ServiceCompactItem = {
   title: string;
   description: string;
-  href: string;
+  slug: string;
+  href?: string;
+  bullets: string[];
 };
 
 export type ProjectCase = {
@@ -112,7 +114,7 @@ export type HomePageContent = {
   servicesProcess: {
     title: string;
     intro: string;
-    items: ServicesProcessItem[];
+    items: ServiceCompactItem[];
   };
   selectedProjects: {
     title: string;
@@ -156,17 +158,19 @@ Dependencies:
 - `ConversationPanel`
 - `SectionHeading` only if needed for supporting cues
 
-### `HomeServicesProcessSection`
+### `HomeServicesSection`
 
 Props:
 
 - `section: HomePageContent["servicesProcess"]`
+- `services: ServicePageContent[]`
 - `locale: Locale`
 
 Dependencies:
 
-- `SectionHeading`
-- service scenario cards or simple structured list
+- compact service cards
+- inline `<details>` disclosure
+- CTA to `/{locale}#contact`
 
 ### `HomeSelectedProjectsSection`
 
@@ -181,25 +185,17 @@ Dependencies:
 - `ProjectCard`
 - CTA link/button
 
-### `HomeTrustSection`
+### `HomeHowWeWorkSection`
 
 Props:
 
-- `section: HomePageContent["trust"]`
+- `trust: HomePageContent["trust"]`
+- `pricing: HomePageContent["pricingLogic"]`
+- `locale: Locale`
 
 Dependencies:
 
-- simple signal cards / structured panels
-
-### `HomePricingLogicSection`
-
-Props:
-
-- `section: HomePageContent["pricingLogic"]`
-
-Dependencies:
-
-- structured factor list/cards
+- merged structured panels for process, estimate logic and trust
 
 ### `HomeFaqSection`
 
@@ -211,18 +207,19 @@ Dependencies:
 
 - `FaqItem`
 
-### `HomeFinalContactSection`
+### `HomeContactSection`
 
 Props:
 
-- `section: HomePageContent["finalContact"]`
+- `section: KontaktPageContent`
 - `locale: Locale`
 
 Dependencies:
 
-- `ConversationPanel` or reuse simplified contact entry
+- `ContactPromptPanel`
 - phone link
-- email link if used
+- email link
+- one strong final contact scenario on the homepage itself
 
 ## 6. Server vs client boundary
 
@@ -235,11 +232,11 @@ These should stay server-rendered:
 - `PageShell`
 - all homepage sections as wrappers
 - H1, subhead, hero prompt copy
-- service/process content
+- service compact content
 - selected project content
-- trust/pricing content
+- merged process/trust/pricing content
 - FAQ content
-- final contact copy
+- contact section copy
 
 ### Current client-side interactivity
 
@@ -322,15 +319,14 @@ High-level render contract:
 <PageShell>
   <SiteHeader />
   <HomeHeroSection content={home.hero} />
-  <HomeServicesProcessSection content={home.servicesProcess} />
+  <HomeServicesSection content={home.servicesProcess} services={services} />
   <HomeSelectedProjectsSection
     content={home.selectedProjects}
     projects={featuredProjects}
   />
-  <HomeTrustSection content={home.trust} />
-  <HomePricingLogicSection content={home.pricingLogic} />
+  <HomeHowWeWorkSection trust={home.trust} pricing={home.pricingLogic} />
   <HomeFaqSection content={home.faq} items={faqItems} />
-  <HomeFinalContactSection content={home.finalContact} />
+  <HomeContactSection content={kontakt} />
   <SiteFooter />
 </PageShell>
 ```
@@ -344,7 +340,7 @@ Homepage route must:
 - call metadata builder from `home.ts`
 - output canonical path
 - output locale-aware metadata
-- expose crawlable internal links to services and `Radovi`
+- expose crawlable internal links to homepage sections and compact service anchors
 - render FAQ in crawlable HTML
 
 Homepage route must not:
@@ -357,7 +353,7 @@ Homepage-specific SEO guarantees:
 - one primary `H1`
 - one canonical path coming from structured content
 - visible service-intent copy above and below the fold
-- crawlable links to the five services, `Radovi` and `Kontakt`
+- crawlable links to compact service anchors, works section and contact section
 - FAQ items present in HTML, not fetched only after interaction
 - hero remains meaningful even with scripts blocked
 
@@ -378,15 +374,16 @@ These stay in:
 - `src/lib/seo/`
 - global measurement layer
 
-## 9. Selected project sourcing
+## 9. Selected project and service sourcing
 
 Homepage should not hardcode project cards.
 
 Implementation rule:
 
-- `home.ts` stores `featuredProjectSlugs`
-- `get-projects.ts` resolves project objects from `projects.ts`
-- section receives only the curated `ProjectCase[]`
+- `home.ts` stores the compact section copy
+- `getProjectCases(locale)` resolves curated case objects from locale project content
+- `getServicesCollection(locale)` resolves the compact service card collection
+- homepage section receives only the curated `ProjectCase[]` and `ServicePageContent[]`
 
 This keeps homepage reusable and content-driven.
 
@@ -420,6 +417,7 @@ These events should be emitted through a dedicated analytics layer later, not in
 ## 11. Minimal implementation checklist
 
 - `src/app/[locale]/page.tsx`
+- `src/content/locales/ru/home.ts`
 - `src/content/locales/hr/home.ts`
 - `src/content/locales/hr/projects.ts`
 - `src/content/locales/hr/faq.ts`

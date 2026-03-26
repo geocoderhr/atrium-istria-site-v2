@@ -384,6 +384,47 @@ textarea {
   gap: 16px;
 }
 
+.service-compact-list {
+  display: grid;
+  gap: 14px;
+}
+
+.service-compact-card {
+  border-radius: var(--radius-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  overflow: clip;
+}
+
+.service-compact-card__summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.service-compact-card__summary::-webkit-details-marker {
+  display: none;
+}
+
+.service-compact-card__summary h3 {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.service-compact-card__summary p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.service-compact-card__details {
+  display: grid;
+  gap: 16px;
+  padding: 0 20px 20px;
+}
+
 .info-card,
 .project-card,
 .contact-block {

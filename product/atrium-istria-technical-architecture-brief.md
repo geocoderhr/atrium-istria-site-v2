@@ -245,6 +245,7 @@ Homepage should be assembled from the following layers:
 - route file:
   `src/app/[locale]/page.tsx`
 - content file:
+  `src/content/locales/ru/home.ts`
   `src/content/locales/hr/home.ts`
 - SEO helper:
   `src/lib/seo/build-metadata.ts`
@@ -267,12 +268,11 @@ Global verification and measurement should remain outside homepage code:
 Recommended module set:
 
 - `HomeHeroSection`
-- `HomeServicesProcessSection`
+- `HomeServicesSection`
 - `HomeSelectedProjectsSection`
-- `HomeTrustSection`
-- `HomePricingLogicSection`
+- `HomeHowWeWorkSection`
 - `HomeFaqSection`
-- `HomeFinalContactSection`
+- `HomeContactSection`
 
 ## 6. Hero architecture
 
@@ -304,12 +304,21 @@ Should contain:
 - hero copy
 - hero prompt
 - proof cues
-- services/process block content
+- compact services block content
 - selected projects references
 - trust block content
-- pricing logic content
+- pricing logic content for merged how-we-work section
 - FAQ references
-- final CTA copy
+- final contact section copy
+
+### public route behavior
+
+Public UX should stay compact:
+
+- `/{locale}` is the main browsing route
+- service routes redirect to homepage service anchors
+- `/radovi` redirects to `#works`
+- `/kontakt` redirects to `#contact`
 
 ### service content files
 

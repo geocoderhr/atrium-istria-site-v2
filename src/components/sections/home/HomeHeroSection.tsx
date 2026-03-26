@@ -2,6 +2,7 @@ import { CSSProperties } from "react";
 
 import { GlassPanel } from "@/components/ui/GlassPanel";
 import { HomeHeroContent } from "@/content/schema";
+import { getUiCopy } from "@/content/locales/ui";
 import { ConversationPanel } from "@/features/conversation/ConversationPanel";
 import { Locale } from "@/lib/routing/locales";
 
@@ -11,6 +12,7 @@ type HomeHeroSectionProps = {
 };
 
 export function HomeHeroSection({ hero, locale }: HomeHeroSectionProps) {
+  const ui = getUiCopy(locale);
   const heroStyle = {
     "--hero-image": `url("${hero.backgroundImage}")`
   } as CSSProperties;
@@ -33,8 +35,8 @@ export function HomeHeroSection({ hero, locale }: HomeHeroSectionProps) {
             </div>
           ))}
           <div className="proof-card proof-card--accent">
-            <span>Početak suradnje</span>
-            <strong>Opis objekta, pregled opsega i konkretan sljedeći korak.</strong>
+            <span>{ui.heroStartLabel}</span>
+            <strong>{ui.heroStartValue}</strong>
           </div>
         </div>
       </div>

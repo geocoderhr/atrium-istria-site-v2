@@ -16,6 +16,7 @@
 - locale-aware routing already exists
 - Search Console verification file and root metadata are already in place
 - homepage-first prototype is already implemented
+- public UX has been compacted to `one-page per locale`
 
 ## 3. Sync docs to the actual homepage
 
@@ -23,23 +24,23 @@
 - mark homepage as the current source of truth
 - remove outdated references to mandatory Figma-before-code flow
 
-## 4. Create service template
+## 4. Compact the public IA
 
-- build reusable service-page sections
-- define service content shape
-- reuse header, section rhythm, CTA logic and visual language from homepage
+- keep `/{locale}` as the single main public route
+- move services, works and contact into homepage sections
+- turn old service, `radovi` and `kontakt` routes into redirect surfaces
 
-## 5. Build the 5 service pages
+## 5. Polish the compact homepage
 
-- connect 5 service content files
-- keep one shared service skeleton
-- preserve SEO-first structure on every service route
+- tighten section rhythm and reduce repeated explanations
+- keep the header short and anchor-based
+- refine mobile and tablet behavior
 
-## 6. Build `Radovi` and `Kontakt`
+## 6. Replace temporary production data
 
-- build `Radovi` as a case-based page, not a gallery
-- build `Kontakt` as the cleanest conversation-entry page
-- keep CTA behavior aligned with homepage
+- replace placeholder phone and email
+- confirm final contact paths and CTA targets
+- confirm hero and works images that stay in production
 
 ## 7. Deepen SEO and measurement surfaces
 
@@ -54,6 +55,6 @@
 After these steps the project should have:
 
 - homepage as the stable visual and structural reference
-- reusable service architecture
-- case-based `Radovi`
+- compact one-page public browsing model
 - clean separation between content, UI, layout, features and SEO
+- deeper SEO and analytics ready for production wiring

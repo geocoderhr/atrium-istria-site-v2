@@ -16,7 +16,7 @@ export function HomeSelectedProjectsSection({
   locale
 }: HomeSelectedProjectsSectionProps) {
   return (
-    <section className="home-section">
+    <section id="works" className="home-section">
       <div className="container stack-lg">
         <div className="section-heading">
           <h2>{section.title}</h2>
@@ -37,9 +37,11 @@ export function HomeSelectedProjectsSection({
             </article>
           ))}
         </div>
-        <Link className="section-link section-link--light" href={`/${locale}${section.ctaHref}`}>
-          {section.ctaLabel}
-        </Link>
+        {section.ctaHref ? (
+          <Link className="section-link section-link--light" href={`/${locale}${section.ctaHref}`}>
+            {section.ctaLabel}
+          </Link>
+        ) : null}
       </div>
     </section>
   );

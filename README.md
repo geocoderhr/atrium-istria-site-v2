@@ -8,6 +8,7 @@
 - `git` и `GitHub` уже подключены.
 - `Next.js` scaffold уже поднят.
 - Homepage уже собрана как первый `code-first prototype`.
+- Публичная IA переведена в компактный `one-page per locale` режим.
 - `Search Console` verification уже встроен двумя способами:
   - `public/googlef7f14d5470db83ba.html`
   - `google-site-verification` в root metadata
@@ -29,6 +30,7 @@
 - Homepage route:
   - `src/app/[locale]/page.tsx`
 - Homepage content:
+  - `src/content/locales/ru/home.ts`
   - `src/content/locales/hr/home.ts`
 - Homepage sections:
   - `src/components/sections/home/`
@@ -36,22 +38,31 @@
   - `src/app/layout.tsx`
 - Search Console HTML verification file:
   - `public/googlef7f14d5470db83ba.html`
+- Redirect routes:
+  - service routes, `radovi` и `kontakt` ведут на homepage anchors
 
 ## Locked project direction
 
 - Primary market: `Croatia + Istria`
-- Primary language for the first full pass: `hr`
+- Working editing locale: `ru`
+- Synced market locale: `hr`
 - Working method: `code-first`
 - Homepage is the current reference page for:
   - visual language
   - section rhythm
   - conversational hero
   - content structure
+- Public UX is intentionally compact:
+  - `/{locale}`
+  - `#services`
+  - `#works`
+  - `#faq`
+  - `#contact`
 
 ## What comes next
 
-1. Build one reusable `service template`.
-2. Use that template for 5 service pages.
-3. Build `Radovi`.
-4. Build `Kontakt`.
-5. Run deeper SEO / analytics / consent pass.
+1. Review and polish the compact homepage.
+2. Tighten mobile and tablet behavior.
+3. Replace temporary contact details with real production data.
+4. Run deeper SEO / analytics / consent pass.
+5. Add `en` later after compact structure and copy are approved.

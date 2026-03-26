@@ -13,6 +13,14 @@ import { servicesRu } from "@/content/locales/ru/services";
 
 export type ServiceSlug = keyof typeof servicesHr;
 
+const serviceOrder: ServiceSlug[] = [
+  "adaptacije-kuca-i-stanova",
+  "adaptacije-kupaonica",
+  "fasade",
+  "rekonstrukcije-kuca",
+  "hidroizolacija"
+];
+
 export function getHomeContent(locale: Locale) {
   if (locale === "ru") {
     return {
@@ -29,6 +37,10 @@ export function getHomeContent(locale: Locale) {
 
 export function getServiceContent(locale: Locale, slug: ServiceSlug) {
   return locale === "ru" ? servicesRu[slug] : servicesHr[slug];
+}
+
+export function getServicesCollection(locale: Locale) {
+  return serviceOrder.map((slug) => getServiceContent(locale, slug));
 }
 
 export function getRadoviContent(locale: Locale) {

@@ -23,9 +23,9 @@ export const homeContentHr: HomePageContent = {
     ]
   },
   servicesProcess: {
-    title: "S kojim zadacima možete doći i kako suradnja počinje",
+    title: "Usluge koje možete riješiti na jednoj jasnoj stranici",
     intro:
-      "Glavna stranica mora odmah objasniti dvije stvari: koje tipove radova vodimo i kako izgleda normalan početak suradnje, od prvog opisa do pregleda opsega i realne procjene.",
+      "Stranica ne treba djelovati kao veliki i raspršeni site. Ispod su glavni tipovi radova, a detalji se otvaraju unutar iste stranice.",
     items: [
       {
         title: "Adaptacije kuća i stanova",
@@ -51,11 +51,11 @@ export const homeContentHr: HomePageContent = {
     title: "Odabrani radovi",
     intro:
       "Ne prikazujemo nasumične fotografije. Svaki projekt ovdje treba pokazati što je bilo, što smo napravili i kakav je rezultat za objekt.",
-    ctaLabel: "Pogledajte sve radove",
-    ctaHref: "/radovi"
+    ctaLabel: "",
+    ctaHref: ""
   },
   trust: {
-    title: "Zašto stranica mora ostavljati dojam organizirane tvrtke, a ne stihijske ekipe",
+    title: "Kako radimo i od čega ovisi procjena",
     items: [
       {
         title: "Jasan početak komunikacije",
@@ -75,9 +75,9 @@ export const homeContentHr: HomePageContent = {
     ]
   },
   pricingLogic: {
-    title: "Od čega ovisi procjena i cijena",
+    title: "Kako radimo i od čega ovisi procjena",
     intro:
-      "Na ovoj stranici otvoreno objašnjavamo što utječe na procjenu, kako bi upit bio kvalitetniji, a prvi razgovor konkretniji.",
+      "Ispod je kratko i jasno objašnjeno kako posao kreće, kako razumijemo opseg i zašto ozbiljna procjena mora polaziti od stvarnog stanja objekta.",
     factors: [
       {
         title: "Stanje objekta",
@@ -117,9 +117,8 @@ export const homeContentHr: HomePageContent = {
     ]
   },
   finalContact: {
-    title: "Pošaljite objekt i krenimo normalno, bez nepotrebnog kompliciranja.",
-    description:
-      "Napišite gdje je objekt, što planirate i koji je okvir zadatka. Nakon toga ide pregled, pojašnjenje opsega i realan sljedeći korak.",
+    title: "",
+    description: "",
     phone: "+385 91 000 0000",
     email: "info@atriumistria.com"
   }

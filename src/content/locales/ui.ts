@@ -2,6 +2,7 @@ import { Locale } from "@/lib/routing/locales";
 
 type UiCopy = {
   navServices: string;
+  navProcess: string;
   navProjects: string;
   navContact: string;
   footerRegion: string;
@@ -12,6 +13,8 @@ type UiCopy = {
   directContactEyebrow: string;
   directContactTitle: string;
   directContactDescription: string;
+  heroStartLabel: string;
+  heroStartValue: string;
   storyBefore: string;
   storyWork: string;
   storyResult: string;
@@ -26,6 +29,7 @@ type UiCopy = {
 const uiCopyByLocale: Record<Locale, UiCopy> = {
   ru: {
     navServices: "Услуги",
+    navProcess: "Как работаем",
     navProjects: "Работы",
     navContact: "Контакт",
     footerRegion: "Пула и Истрия",
@@ -37,6 +41,8 @@ const uiCopyByLocale: Record<Locale, UiCopy> = {
     directContactTitle: "Телефон и e-mail остаются сразу доступными.",
     directContactDescription:
       "Если удобнее, можно написать или позвонить напрямую. Страница устроена так, чтобы у тебя был и свободный ввод, и прямой контакт.",
+    heroStartLabel: "Начало работы",
+    heroStartValue: "Описание объекта, понимание объема и нормальный следующий шаг.",
     storyBefore: "Что было",
     storyWork: "Что сделали",
     storyResult: "Результат",
@@ -50,6 +56,7 @@ const uiCopyByLocale: Record<Locale, UiCopy> = {
   },
   hr: {
     navServices: "Usluge",
+    navProcess: "Kako radimo",
     navProjects: "Radovi",
     navContact: "Kontakt",
     footerRegion: "Pula i Istra",
@@ -61,6 +68,8 @@ const uiCopyByLocale: Record<Locale, UiCopy> = {
     directContactTitle: "Telefon i e-mail ostaju odmah dostupni.",
     directContactDescription:
       "Ako vam je jednostavnije, javite se direktno. Stranica je zamišljena tako da možete birati između slobodnog opisa i izravnog kontakta.",
+    heroStartLabel: "Početak suradnje",
+    heroStartValue: "Opis objekta, pregled opsega i konkretan sljedeći korak.",
     storyBefore: "Što je bilo",
     storyWork: "Što smo napravili",
     storyResult: "Rezultat",
