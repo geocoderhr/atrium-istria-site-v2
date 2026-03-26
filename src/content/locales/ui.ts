@@ -5,6 +5,9 @@ type UiCopy = {
   navProcess: string;
   navProjects: string;
   navContact: string;
+  languageLabel: string;
+  languageRussian: string;
+  languageCroatian: string;
   footerRegion: string;
   openService: string;
   openContactPage: string;
@@ -32,6 +35,9 @@ const uiCopyByLocale: Record<Locale, UiCopy> = {
     navProcess: "Как работаем",
     navProjects: "Работы",
     navContact: "Контакт",
+    languageLabel: "Язык",
+    languageRussian: "Русский",
+    languageCroatian: "Hrvatski",
     footerRegion: "Пула и Истрия",
     openService: "Открыть услугу",
     openContactPage: "Открыть страницу контакта",
@@ -59,6 +65,9 @@ const uiCopyByLocale: Record<Locale, UiCopy> = {
     navProcess: "Kako radimo",
     navProjects: "Radovi",
     navContact: "Kontakt",
+    languageLabel: "Jezik",
+    languageRussian: "Русki",
+    languageCroatian: "Hrvatski",
     footerRegion: "Pula i Istra",
     openService: "Otvorite uslugu",
     openContactPage: "Otvorite kontakt stranicu",

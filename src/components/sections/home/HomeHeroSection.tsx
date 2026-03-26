@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import Image from "next/image";
 
 import { GlassPanel } from "@/components/ui/GlassPanel";
 import { HomeHeroContent } from "@/content/schema";
@@ -13,13 +13,19 @@ type HomeHeroSectionProps = {
 
 export function HomeHeroSection({ hero, locale }: HomeHeroSectionProps) {
   const ui = getUiCopy(locale);
-  const heroStyle = {
-    "--hero-image": `url("${hero.backgroundImage}")`
-  } as CSSProperties;
 
   return (
-    <section className="home-hero" style={heroStyle}>
-      <div className="home-hero__backdrop" />
+    <section className="home-hero">
+      <div className="home-hero__backdrop">
+        <Image
+          src={hero.backgroundImage}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="home-hero__image"
+        />
+      </div>
       <div className="container home-hero__inner">
         <GlassPanel className="home-hero__panel">
           <p className="eyebrow">{hero.eyebrow}</p>
