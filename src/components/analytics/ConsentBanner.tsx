@@ -1,6 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+
+import { getUiCopy } from "@/content/locales/ui";
+import { Locale } from "@/lib/routing/locales";
 
 declare global {
   interface Window {
@@ -32,6 +36,9 @@ function updateConsent(choice: Exclude<ConsentState, null>) {
 
 export function ConsentBanner() {
   const [choice, setChoice] = useState<ConsentState>(null);
+  const pathname = usePathname();
+  const locale = pathname.startsWith("/hr") ? "hr" : "ru";
+  const ui = getUiCopy(locale as Locale);
 
   useEffect(() => {
     if (!gtmEnabled) {
@@ -59,18 +66,15 @@ export function ConsentBanner() {
   return (
     <aside className="consent-banner" aria-label="Consent banner">
       <div className="stack-md">
-        <strong>Kolačići i analitika</strong>
-        <p>
-          Koristimo analitiku kako bismo razumjeli koje stranice i upiti donose stvarne kontakte. Možete prihvatiti ili
-          odbiti analitičke kolačiće.
-        </p>
+        <strong>{ui.consentTitle}</strong>
+        <p>{ui.consentDescription}</p>
       </div>
       <div className="consent-banner__actions">
         <button type="button" className="section-link section-link--accent" onClick={() => handleChoice("granted")}>
-          Prihvatite analitiku
+          {ui.consentAccept}
         </button>
         <button type="button" className="section-link" onClick={() => handleChoice("denied")}>
-          Odbijte
+          {ui.consentReject}
         </button>
       </div>
     </aside>

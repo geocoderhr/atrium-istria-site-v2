@@ -3,15 +3,19 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { getUiCopy } from "@/content/locales/ui";
+import { Locale } from "@/lib/routing/locales";
+
 type ConversationPanelProps = {
   prompt: string;
   placeholder: string;
-  locale: string;
+  locale: Locale;
 };
 
 export function ConversationPanel({ prompt, placeholder, locale }: ConversationPanelProps) {
   const router = useRouter();
   const [value, setValue] = useState("");
+  const ui = getUiCopy(locale);
 
   function handleContinue() {
     const target = `/${locale}/kontakt`;
@@ -21,12 +25,12 @@ export function ConversationPanel({ prompt, placeholder, locale }: ConversationP
   }
 
   return (
-    <section className="conversation-panel" aria-label="Početak razgovora">
+    <section className="conversation-panel" aria-label={ui.conversationAria}>
       <p className="conversation-panel__prompt">{prompt}</p>
-      <div className="conversation-panel__input" role="group" aria-label="Opis objekta">
+      <div className="conversation-panel__input" role="group" aria-label={ui.objectDescriptionAria}>
         <textarea rows={3} placeholder={placeholder} value={value} onChange={(event) => setValue(event.target.value)} />
         <button type="button" onClick={handleContinue}>
-          Nastavite na kontakt
+          {ui.continueToContact}
         </button>
       </div>
     </section>

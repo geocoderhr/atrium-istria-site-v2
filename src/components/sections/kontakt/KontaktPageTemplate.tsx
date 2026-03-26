@@ -1,11 +1,16 @@
 import { ContactPromptPanel } from "@/features/conversation/ContactPromptPanel";
 import { ContactPageContent } from "@/content/schema";
+import { getUiCopy } from "@/content/locales/ui";
+import { Locale } from "@/lib/routing/locales";
 
 type KontaktPageTemplateProps = {
   content: ContactPageContent;
+  locale: Locale;
 };
 
-export function KontaktPageTemplate({ content }: KontaktPageTemplateProps) {
+export function KontaktPageTemplate({ content, locale }: KontaktPageTemplateProps) {
+  const ui = getUiCopy(locale);
+
   return (
     <>
       <section className="page-hero">
@@ -64,13 +69,10 @@ export function KontaktPageTemplate({ content }: KontaktPageTemplateProps) {
           />
           <aside className="contact-sidecard stack-md">
             <div>
-              <p className="eyebrow eyebrow--light">Direktan kontakt</p>
-              <h2>Telefon i e-mail ostaju odmah dostupni.</h2>
+              <p className="eyebrow eyebrow--light">{ui.directContactEyebrow}</p>
+              <h2>{ui.directContactTitle}</h2>
             </div>
-            <p>
-              Ako vam je jednostavnije, javite se direktno. Stranica je zamišljena tako da možete birati između slobodnog
-              opisa i izravnog kontakta.
-            </p>
+            <p>{ui.directContactDescription}</p>
             <div className="contact-block__links">
               <a href={`tel:${content.prompt.phone.replace(/\s+/g, "")}`}>{content.prompt.phone}</a>
               <a href={`mailto:${content.prompt.email}`}>{content.prompt.email}</a>

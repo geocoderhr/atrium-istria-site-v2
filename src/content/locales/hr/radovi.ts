@@ -32,7 +32,7 @@ export const radoviContentHr: RadoviPageContent = {
     description:
       "Napišite lokaciju, tip objekta i što želite riješiti. Nakon toga slijedi realan sljedeći korak, bez praznih obećanja.",
     ctaLabel: "Otvorite kontakt",
-    ctaHref: "/hr/kontakt",
+    ctaHref: "/kontakt",
     phone: siteConfig.phone,
     email: siteConfig.email
   }

@@ -1,14 +1,17 @@
 import Link from "next/link";
 
+import { LanguageSwitch } from "@/components/layout/LanguageSwitch";
 import { siteConfig } from "@/content/site-config";
+import { getUiCopy } from "@/content/locales/ui";
 import { Locale } from "@/lib/routing/locales";
-import { locales } from "@/lib/routing/locales";
 
 type SiteHeaderProps = {
   locale: Locale;
 };
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
+  const ui = getUiCopy(locale);
+
   return (
     <header className="site-header">
       <div className="container site-header__inner">
@@ -16,24 +19,12 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
           <Link href={`/${locale}`} className="site-logo">
             Atrium Istria
           </Link>
-          {locales.length > 1 ? (
-            <div className="language-switch" aria-label="Language switch">
-              {locales.map((item) => (
-                <Link
-                  key={item}
-                  href={`/${item}`}
-                  className={item === locale ? "language-switch__item is-active" : "language-switch__item"}
-                >
-                  {item.toUpperCase()}
-                </Link>
-              ))}
-            </div>
-          ) : null}
+          <LanguageSwitch locale={locale} />
         </div>
         <nav className="site-nav" aria-label="Primary">
-          <Link href={`/${locale}/adaptacije-kuca-i-stanova`}>Usluge</Link>
-          <Link href={`/${locale}/radovi`}>Radovi</Link>
-          <Link href={`/${locale}/kontakt`}>Kontakt</Link>
+          <Link href={`/${locale}/adaptacije-kuca-i-stanova`}>{ui.navServices}</Link>
+          <Link href={`/${locale}/radovi`}>{ui.navProjects}</Link>
+          <Link href={`/${locale}/kontakt`}>{ui.navContact}</Link>
         </nav>
         <a className="site-phone" href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}>
           {siteConfig.phone}

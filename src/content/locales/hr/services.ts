@@ -3,7 +3,7 @@ import { siteConfig } from "@/content/site-config";
 
 const contactBlock = {
   ctaLabel: "Pošaljite opis objekta",
-  ctaHref: "/hr/kontakt",
+  ctaHref: "/kontakt",
   phone: siteConfig.phone,
   email: siteConfig.email
 };
@@ -24,7 +24,7 @@ export const adaptacijeKucaIStanovaHr: ServicePageContent = {
     image: "/site/services/adaptacije-kuca-i-stanova.jpg",
     imageAlt: "Završen interijer nakon adaptacije kuće ili stana",
     ctaLabel: "Opišite stan ili kuću",
-    ctaHref: "/hr/kontakt",
+    ctaHref: "/kontakt",
     proofCues: [
       { label: "Tip projekata", value: "Stanovi, kuće, apartmani" },
       { label: "Pristup", value: "Jasan opseg i uredan redoslijed radova" },
@@ -163,7 +163,7 @@ export const adaptacijeKupaonicaHr: ServicePageContent = {
     image: "/site/services/adaptacije-kupaonica.jpg",
     imageAlt: "Završena moderna kupaonica nakon adaptacije",
     ctaLabel: "Opišite kupaonicu",
-    ctaHref: "/hr/kontakt",
+    ctaHref: "/kontakt",
     proofCues: [
       { label: "Fokus", value: "Instalacije, keramika, završni detalji" },
       { label: "Tip prostora", value: "Stanovi, kuće, apartmani" },
@@ -302,7 +302,7 @@ export const fasadeHr: ServicePageContent = {
     image: "/site/services/fasade.jpg",
     imageAlt: "Obnovljena fasada obiteljske kuće",
     ctaLabel: "Opišite objekt i fasadu",
-    ctaHref: "/hr/kontakt",
+    ctaHref: "/kontakt",
     proofCues: [
       { label: "Objekti", value: "Kuće, vile, apartmani" },
       { label: "Rezultat", value: "Zaštita + uredan završni dojam" },
@@ -441,7 +441,7 @@ export const rekonstrukcijeKucaHr: ServicePageContent = {
     image: "/site/services/rekonstrukcije-kuca.jpg",
     imageAlt: "Interijer obnovljenog prostora tijekom rekonstrukcije kuće",
     ctaLabel: "Opišite kuću i plan rekonstrukcije",
-    ctaHref: "/hr/kontakt",
+    ctaHref: "/kontakt",
     proofCues: [
       { label: "Tip zahvata", value: "Šire i povezane rekonstrukcije" },
       { label: "Cilj", value: "Jasan redoslijed i ozbiljan završni rezultat" },
@@ -580,7 +580,7 @@ export const hidroizolacijaHr: ServicePageContent = {
     image: "/site/services/hidroizolacija.jpg",
     imageAlt: "Površina krova pripremljena za hidroizolaciju",
     ctaLabel: "Opišite problem s hidroizolacijom",
-    ctaHref: "/hr/kontakt",
+    ctaHref: "/kontakt",
     proofCues: [
       { label: "Fokus", value: "Krovovi i kritične izložene površine" },
       { label: "Pristup", value: "Procjena stanja prije zahvata" },

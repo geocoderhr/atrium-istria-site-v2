@@ -1,11 +1,33 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { ServicePageTemplate } from "@/components/sections/service/ServicePageTemplate";
-import { hidroizolacijaHr } from "@/content/locales/hr/services";
+import { getServiceContent } from "@/content/locales/content";
 import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
+import { isSupportedLocale, Locale } from "@/lib/routing/locales";
 
-export const metadata: Metadata = buildPageMetadata(hidroizolacijaHr.seo, "hr");
+type ServicePageProps = {
+  params: Promise<{ locale: string }>;
+};
 
-export default function HidroizolacijaPage() {
-  return <ServicePageTemplate content={hidroizolacijaHr} />;
+export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  if (!isSupportedLocale(locale)) {
+    return {};
+  }
+
+  const content = getServiceContent(locale as Locale, "hidroizolacija");
+  return buildPageMetadata(content.seo, locale);
+}
+
+export default async function HidroizolacijaPage({ params }: ServicePageProps) {
+  const { locale } = await params;
+
+  if (!isSupportedLocale(locale)) {
+    notFound();
+  }
+
+  const content = getServiceContent(locale as Locale, "hidroizolacija");
+  return <ServicePageTemplate content={content} locale={locale as Locale} />;
 }

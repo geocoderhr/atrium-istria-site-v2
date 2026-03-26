@@ -2,12 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { RadoviPageContent } from "@/content/schema";
+import { getUiCopy } from "@/content/locales/ui";
+import { Locale } from "@/lib/routing/locales";
 
 type RadoviPageTemplateProps = {
   content: RadoviPageContent;
+  locale: Locale;
 };
 
-export function RadoviPageTemplate({ content }: RadoviPageTemplateProps) {
+export function RadoviPageTemplate({ content, locale }: RadoviPageTemplateProps) {
+  const ui = getUiCopy(locale);
+
   return (
     <>
       <section className="page-hero">
@@ -50,20 +55,20 @@ export function RadoviPageTemplate({ content }: RadoviPageTemplateProps) {
                   <h3>{item.title}</h3>
                   <dl className="radovi-card__story">
                     <div>
-                      <dt>Što je bilo</dt>
+                      <dt>{ui.storyBefore}</dt>
                       <dd>{item.challenge}</dd>
                     </div>
                     <div>
-                      <dt>Što smo napravili</dt>
+                      <dt>{ui.storyWork}</dt>
                       <dd>{item.workDone}</dd>
                     </div>
                     <div>
-                      <dt>Rezultat</dt>
+                      <dt>{ui.storyResult}</dt>
                       <dd>{item.result}</dd>
                     </div>
                   </dl>
-                  <Link className="section-link" href={`/hr${item.serviceHref}`}>
-                    Otvorite povezanu uslugu
+                  <Link className="section-link" href={`/${locale}${item.serviceHref}`}>
+                    {ui.relatedService}
                   </Link>
                 </div>
               </article>
@@ -79,7 +84,7 @@ export function RadoviPageTemplate({ content }: RadoviPageTemplateProps) {
             <p>{content.finalContact.description}</p>
           </div>
           <div className="contact-block__links">
-            <Link className="section-link section-link--accent" href={content.finalContact.ctaHref}>
+            <Link className="section-link section-link--accent" href={`/${locale}${content.finalContact.ctaHref}`}>
               {content.finalContact.ctaLabel}
             </Link>
             <a href={`tel:${content.finalContact.phone.replace(/\s+/g, "")}`}>{content.finalContact.phone}</a>

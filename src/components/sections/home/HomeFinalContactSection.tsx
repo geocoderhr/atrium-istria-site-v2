@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { HomePageContent } from "@/content/schema";
+import { getUiCopy } from "@/content/locales/ui";
 import { Locale } from "@/lib/routing/locales";
 
 type HomeFinalContactSectionProps = {
@@ -9,6 +10,8 @@ type HomeFinalContactSectionProps = {
 };
 
 export function HomeFinalContactSection({ section, locale }: HomeFinalContactSectionProps) {
+  const ui = getUiCopy(locale);
+
   return (
     <section className="home-section home-section--contact">
       <div className="container contact-block">
@@ -20,7 +23,7 @@ export function HomeFinalContactSection({ section, locale }: HomeFinalContactSec
           <a href={`tel:${section.phone.replace(/\s+/g, "")}`}>{section.phone}</a>
           <a href={`mailto:${section.email}`}>{section.email}</a>
           <Link className="section-link" href={`/${locale}/kontakt`}>
-            Otvorite kontakt stranicu
+            {ui.openContactPage}
           </Link>
         </div>
       </div>

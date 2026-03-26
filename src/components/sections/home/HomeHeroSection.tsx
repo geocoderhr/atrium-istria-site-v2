@@ -3,10 +3,11 @@ import { CSSProperties } from "react";
 import { GlassPanel } from "@/components/ui/GlassPanel";
 import { HomeHeroContent } from "@/content/schema";
 import { ConversationPanel } from "@/features/conversation/ConversationPanel";
+import { Locale } from "@/lib/routing/locales";
 
 type HomeHeroSectionProps = {
   hero: HomeHeroContent;
-  locale: string;
+  locale: Locale;
 };
 
 export function HomeHeroSection({ hero, locale }: HomeHeroSectionProps) {

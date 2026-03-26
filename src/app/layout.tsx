@@ -6,6 +6,7 @@ import { AnalyticsNoScript, AnalyticsScripts } from "@/components/analytics/Anal
 import { ConsentBanner } from "@/components/analytics/ConsentBanner";
 import { StructuredData } from "@/components/seo/StructuredData";
 import { baseMetadata } from "@/lib/seo/site-metadata";
+import { defaultLocale } from "@/lib/routing/locales";
 
 export const metadata: Metadata = baseMetadata;
 
@@ -15,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="hr">
+    <html lang={defaultLocale}>
       <body>
         <AnalyticsNoScript />
         <StructuredData />

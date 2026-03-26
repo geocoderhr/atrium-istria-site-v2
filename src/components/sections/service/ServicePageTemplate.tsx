@@ -3,12 +3,14 @@ import Link from "next/link";
 
 import { GlassPanel } from "@/components/ui/GlassPanel";
 import { ServicePageContent } from "@/content/schema";
+import { Locale } from "@/lib/routing/locales";
 
 type ServicePageTemplateProps = {
   content: ServicePageContent;
+  locale: Locale;
 };
 
-export function ServicePageTemplate({ content }: ServicePageTemplateProps) {
+export function ServicePageTemplate({ content, locale }: ServicePageTemplateProps) {
   return (
     <>
       <section className="service-hero">
@@ -27,7 +29,7 @@ export function ServicePageTemplate({ content }: ServicePageTemplateProps) {
             <p className="eyebrow">{content.hero.eyebrow}</p>
             <h1>{content.hero.title}</h1>
             <p className="hero-description">{content.hero.description}</p>
-            <Link className="section-link section-link--accent" href={content.hero.ctaHref}>
+            <Link className="section-link section-link--accent" href={`/${locale}${content.hero.ctaHref}`}>
               {content.hero.ctaLabel}
             </Link>
           </GlassPanel>
@@ -160,7 +162,7 @@ export function ServicePageTemplate({ content }: ServicePageTemplateProps) {
             <p>{content.finalContact.description}</p>
           </div>
           <div className="contact-block__links">
-            <Link className="section-link section-link--accent" href={content.finalContact.ctaHref}>
+            <Link className="section-link section-link--accent" href={`/${locale}${content.finalContact.ctaHref}`}>
               {content.finalContact.ctaLabel}
             </Link>
             <a href={`tel:${content.finalContact.phone.replace(/\s+/g, "")}`}>{content.finalContact.phone}</a>

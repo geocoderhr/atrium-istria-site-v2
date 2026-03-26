@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { HomePageContent } from "@/content/schema";
+import { getUiCopy } from "@/content/locales/ui";
 import { Locale } from "@/lib/routing/locales";
 
 type HomeServicesProcessSectionProps = {
@@ -9,6 +10,8 @@ type HomeServicesProcessSectionProps = {
 };
 
 export function HomeServicesProcessSection({ section, locale }: HomeServicesProcessSectionProps) {
+  const ui = getUiCopy(locale);
+
   return (
     <section className="home-section">
       <div className="container stack-lg">
@@ -22,7 +25,7 @@ export function HomeServicesProcessSection({ section, locale }: HomeServicesProc
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               <Link className="section-link" href={`/${locale}${item.href}`}>
-                Otvorite uslugu
+                {ui.openService}
               </Link>
             </article>
           ))}
