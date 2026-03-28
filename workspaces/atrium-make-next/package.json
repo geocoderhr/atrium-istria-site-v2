@@ -1,0 +1,33 @@
+{
+  "name": "atrium-make-next",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "1.2.3",
+    "clsx": "2.1.1",
+    "lucide-react": "0.487.0",
+    "next": "^16.0.0",
+    "re-resizable": "^6.11.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "3.2.0",
+    "tw-animate-css": "1.3.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.1.12",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.0.0",
+    "tailwindcss": "4.1.12",
+    "typescript": "^5.0.0"
+  }
+}

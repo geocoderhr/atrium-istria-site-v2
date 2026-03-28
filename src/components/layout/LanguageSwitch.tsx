@@ -74,7 +74,6 @@ export function LanguageSwitch({ locale }: LanguageSwitchProps) {
         onClick={() => setOpen((current) => !current)}
       >
         <span className="language-switch__label">{ui.languageLabel}</span>
-        <span className="language-switch__value">{localeLabelByCode[locale]}</span>
         <span className="language-switch__caret" aria-hidden="true" />
       </button>
       {open ? (
