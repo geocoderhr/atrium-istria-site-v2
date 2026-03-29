@@ -139,7 +139,7 @@ export function ShowcaseGalleryModal({
 
   return (
     <ClientPortal>
-      <div className="fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto px-4 py-4 sm:px-6 sm:py-6">
+      <div className="scrollbar-hide fixed inset-0 z-[120] flex items-center justify-center overflow-y-auto px-4 py-4 sm:px-6 sm:py-6">
         <button
           type="button"
           aria-label={ui.closeLabel}
@@ -182,7 +182,7 @@ export function ShowcaseGalleryModal({
             </button>
 
             <div
-              className="relative h-full w-full overflow-hidden rounded-[1.5rem] touch-pan-y"
+              className="relative h-full w-full overflow-hidden rounded-[1.5rem] bg-[#0b1016] touch-pan-y"
               onTouchStart={handleGalleryTouchStart}
               onTouchEnd={handleGalleryTouchEnd}
               onTouchCancel={() => {
@@ -193,7 +193,7 @@ export function ShowcaseGalleryModal({
                 src={currentImage}
                 alt={`${card.title} ${activeIndex + 1}`}
                 fill
-                className="object-contain"
+                className="scale-[1.01] object-contain"
                 sizes="100vw"
                 priority
               />
@@ -234,7 +234,7 @@ export function ShowcaseGalleryModal({
 
             <div
               ref={thumbnailStripRef}
-              className="flex gap-3 overflow-x-auto pb-1"
+              className="scrollbar-hide flex gap-3 overflow-x-auto pb-1"
             >
               {images.map((image, index) => {
                 const isActive = index === activeIndex;
