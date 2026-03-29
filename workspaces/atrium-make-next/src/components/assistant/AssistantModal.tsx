@@ -50,9 +50,17 @@ type AssistantModalProps = {
   onClose: () => void;
 };
 
+function createRuntimeId(prefix: string) {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return `${prefix}-${crypto.randomUUID()}`;
+  }
+
+  return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+}
+
 function createMessage(role: AssistantMessage["role"], text: string): AssistantMessage {
   return {
-    id: `${role}-${crypto.randomUUID()}`,
+    id: createRuntimeId(role),
     role,
     text
   };
@@ -104,7 +112,7 @@ export function AssistantModal({ isOpen, launchOptions, initialState, onClose }:
   const navigateToPrivacy = useModalPrivacyNavigation();
   const [isConsentChecked, setIsConsentChecked] = useState(initialState?.isConsentChecked ?? false);
   const [isChatUnlocked, setIsChatUnlocked] = useState(initialState?.isChatUnlocked ?? false);
-  const [conversationId] = useState(initialState?.conversationId ?? crypto.randomUUID());
+  const [conversationId] = useState(initialState?.conversationId ?? createRuntimeId("conversation"));
   const [requestId, setRequestId] = useState(initialState?.requestId ?? null);
   const [composerValue, setComposerValue] = useState(initialState?.composerValue ?? initialMessage ?? "");
   const [messages, setMessages] = useState<AssistantMessage[]>(
