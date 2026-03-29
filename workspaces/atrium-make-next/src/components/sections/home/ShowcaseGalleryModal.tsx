@@ -189,14 +189,16 @@ export function ShowcaseGalleryModal({
                 swipeStartRef.current = null;
               }}
             >
-              <Image
-                src={currentImage}
-                alt={`${card.title} ${activeIndex + 1}`}
-                fill
-                className="scale-[1.01] object-contain"
-                sizes="100vw"
-                priority
-              />
+              <div className="flex h-full w-full items-center justify-center">
+                {/* Using native img here avoids Chrome edge-seam artifacts in the fullscreen preview. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={currentImage}
+                  alt={`${card.title} ${activeIndex + 1}`}
+                  className="max-h-full max-w-full select-none object-contain"
+                  draggable={false}
+                />
+              </div>
             </div>
 
             <button
