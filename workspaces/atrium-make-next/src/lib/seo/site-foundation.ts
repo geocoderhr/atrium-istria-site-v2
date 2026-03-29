@@ -19,14 +19,30 @@ function normalizeSiteUrl(value: string | undefined) {
   }
 }
 
+function isLocalhostSiteUrl(value: string) {
+  try {
+    const parsed = new URL(value);
+    const hostname = parsed.hostname.toLowerCase();
+
+    return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "::1";
+  } catch {
+    return false;
+  }
+}
+
 export function resolveSiteUrl() {
+  const isDevelopment = process.env.NODE_ENV === "development";
   const envSiteUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 
   if (envSiteUrl) {
+    if (!isDevelopment && isLocalhostSiteUrl(envSiteUrl)) {
+      return DEFAULT_PRODUCTION_SITE_URL;
+    }
+
     return envSiteUrl;
   }
 
-  if (process.env.NODE_ENV === "development") {
+  if (isDevelopment) {
     return LOCAL_DEVELOPMENT_SITE_URL;
   }
 
